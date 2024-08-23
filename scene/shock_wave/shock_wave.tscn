@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://u0bc05jxrys6"]
+
+[ext_resource type="Script" path="res://scene/shock_wave/shock_wave.gd" id="1_tit6k"]
+[ext_resource type="Texture2D" uid="uid://chbhk5h3opjel" path="res://scene/shock_wave/dc1e990f7faa87fd488f0e3a604c529e.jpg" id="2_tuku1"]
+[ext_resource type="Shader" path="res://scene/shock_wave/shock_wave.gdshader" id="3_tduli"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uklod"]
+shader = ExtResource("3_tduli")
+shader_parameter/edge = 0.74
+shader_parameter/width = 0.5
+shader_parameter/amp = 0.27
+
+[node name="ShockWave" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tit6k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 860.0
+offset_bottom = 641.0
+texture = ExtResource("2_tuku1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_uklod")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
