@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmuclfemetk1q"]
+
+[ext_resource type="Shader" path="res://scene/holographic_bubble/holographic_bubble.gdshader" id="1_tuogf"]
+
+[sub_resource type="Gradient" id="Gradient_cn7ie"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.301676, 0.413408, 0.511173, 0.603352, 0.703911)
+colors = PackedColorArray(1, 1, 1, 0, 0.13, 1, 0.942, 1, 0.982, 0.46, 1, 1, 1, 0.884, 0.42, 1, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q5y3l"]
+frequency = 0.0042
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tcrs2"]
+seamless = true
+color_ramp = SubResource("Gradient_cn7ie")
+noise = SubResource("FastNoiseLite_q5y3l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcde5"]
+shader = ExtResource("1_tuogf")
+shader_parameter/edge_strength = 8.41
+shader_parameter/edge_color = Color(1, 1, 1, 1)
+shader_parameter/scroll = Vector2(0, 0.12)
+shader_parameter/distort = 1.19
+shader_parameter/scale = 0.21
+shader_parameter/noise = SubResource("NoiseTexture2D_tcrs2")
+
+[node name="HolographicBubble" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dcde5")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
