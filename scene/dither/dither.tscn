@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://da6ntr4wi045v"]
+
+[ext_resource type="Texture2D" uid="uid://cd41gkdi7f3rn" path="res://scene/dither/325f592fb91f6e19d9b8c1fd0d86d7bfabd065289c9f11a844a66f63e5b26945_1.jpg" id="1_8ncwg"]
+[ext_resource type="Shader" path="res://scene/dither/dither.gdshader" id="1_wy1h7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_er65y"]
+shader = ExtResource("1_wy1h7")
+shader_parameter/spatial_reso = 255.0
+shader_parameter/dither_layer = 4
+shader_parameter/gate_curve = 0.41
+
+[node name="Dither" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_er65y")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8ncwg")
