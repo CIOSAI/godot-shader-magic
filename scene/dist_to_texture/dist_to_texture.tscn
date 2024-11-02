@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://gwkik5i3k65e"]
+
+[ext_resource type="Shader" path="res://scene/dist_to_texture/dist_to_texture.gdshader" id="1_268vl"]
+[ext_resource type="Texture2D" uid="uid://eymig5kxkgya" path="res://scene/dist_to_texture/ciosaitw_silly_texture.png" id="2_x03d8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bs3bc"]
+shader = ExtResource("1_268vl")
+shader_parameter/iter = 8
+shader_parameter/samp = 32
+shader_parameter/bevel = 0.01
+shader_parameter/protrude = 1.0
+
+[node name="DistToTexture" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_bs3bc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x03d8")
